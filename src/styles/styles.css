@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+}
+
+.foodItem {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0.5rem 1rem 0.5rem ;
+    padding-left: 1em;
+    border: solid 2px red;
+    width: 15rem;
+    
+
+}
