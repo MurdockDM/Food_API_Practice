@@ -6,7 +6,7 @@ const foodFactory = (foodObject) => {
                     <p>${foodObject.ethnicity} <br> ${foodObject.category}</p>
                     <p>${foodObject.ingredients}</p>
                 </article>
-            </section>`
+            </section>`;
 };
 
 
@@ -14,7 +14,7 @@ const foodFactory = (foodObject) => {
 
 const addFoodToDom = (foodItem) => {
     const listOfItems = document.querySelector(".foodList");
-    listOfItems.innerHTML += foodItem
+    listOfItems.innerHTML += foodItem;
 };
 
 
@@ -33,7 +33,7 @@ const addFoodToDom = (foodItem) => {
     .then(response => response.json())
     .then(myParsedFoods => {
         myParsedFoods.forEach(food => {
-            console.log(food)
+            console.log(food);
         //  Should have a `barcode` property
 
             // Now fetch the food from the Food API
@@ -41,18 +41,18 @@ const addFoodToDom = (foodItem) => {
                 .then(response => response.json())
                 .then(productInfo => {
                     if (productInfo.product.ingredients_text_en) {
-                      food.ingredients = productInfo.product.ingredients_text_en
+                      food.ingredients = productInfo.product.ingredients_text_en;
                     } else if (productInfo.product.ingredients_text) {
-                        food.ingredients = productInfo.product.ingredients_text
+                        food.ingredients = productInfo.product.ingredients_text;
                     } else {
-                        food.ingredients = "no ingredients listed"
+                        food.ingredients = "no ingredients listed";
                     }
 
                     // Produce HTML representation
-                    const foodAsHTML = foodFactory(food)
+                    const foodAsHTML = foodFactory(food);
 
                     // Add representaiton to DOM
-                    addFoodToDom(foodAsHTML)
-                })
-        })
-    })
+                    addFoodToDom(foodAsHTML);
+                });
+        });
+    });
